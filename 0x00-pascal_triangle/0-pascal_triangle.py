@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 
-from math import factorial
-
-
 """
 Module 0-pascal_triangle
 """
+
+
+def factorial(n):
+    """factorial of n"""
+    fact = 1
+    i = 1
+    for i in range(i, n+1):
+        fact = fact * i
+    return fact
 
 
 def nCr(n, r):
