@@ -8,6 +8,10 @@ Module 0-pascal_triangle
 def factorial(n):
     """factorial of n"""
     fact = 1
+    if n == 0 and n == 1:
+        return 1
+    if n < 0:
+        raise ValueError("No factorial of a negative number")
     for i in range(1, n+1):
         fact = fact * i
     return fact
