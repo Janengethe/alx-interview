@@ -29,6 +29,8 @@ def pascal_triangle(n):
     Returns pascal's trangle(list of lists of integers)
     or an empty list if n <= 0
     """
+    if n <= 0:
+        return []
     plist = []
     for i in range(n):
         plist.append((list((nCr(i, j) for j in range(0, i + 1)))))
