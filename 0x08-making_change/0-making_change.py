@@ -10,14 +10,12 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    t_coins = []
     count = 0
     sorted_coins = sorted(coins, reverse=True)
 
     for coin in sorted_coins:
         while total >= coin:
             total -= coin
-            t_coins.append(coin)
             count += 1
 
     return count if total == 0 else -1
