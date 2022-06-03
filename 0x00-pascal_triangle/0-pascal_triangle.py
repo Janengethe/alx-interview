@@ -1,27 +1,7 @@
 #!/usr/bin/python3
-
 """
-Module 0-pascal_triangle
+Module 12-pascal_triangle
 """
-
-
-def factorial(n):
-    """factorial of n"""
-    fact = 1
-    if n == 0 and n == 1:
-        return 1
-    if n < 0:
-        raise ValueError("No factorial of a negative number")
-    for i in range(1, n + 1):
-        fact = fact * i
-    return fact
-
-
-def nCr(n, r):
-    """
-    returns factorial
-    """
-    return int(factorial(n) / (factorial(r) * factorial(n - r)))
 
 
 def pascal_triangle(n):
@@ -31,7 +11,13 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    plist = []
-    for i in range(n):
-        plist.append((list((nCr(i, j) for j in range(0, i + 1)))))
-    return plist
+
+    triangles = [[1]]
+    while len(triangles) != n:
+        tri = triangles[-1]
+        tmp = [1]
+        for i in range(len(tri) - 1):
+            tmp.append(tri[i] + tri[i + 1])
+        tmp.append(1)
+        triangles.append(tmp)
+    return triangles
